@@ -775,7 +775,10 @@ function showResult() {
 
   // Overall message
   const pct = Math.round(correct / total * 100);
+  const oldMsg = document.getElementById('result-msg');
+  if (oldMsg) oldMsg.remove();
   const msg = document.createElement('div');
+  msg.id = 'result-msg';
   msg.style.cssText = 'text-align:center;margin-bottom:20px;font-size:1.05rem;color:#4a5568;';
   msg.textContent = pct >= 80 ? '素晴らしい！' : pct >= 60 ? 'もう少し！' : '復習しましょう！';
   detail.before(msg);
